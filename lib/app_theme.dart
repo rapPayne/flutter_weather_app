@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-ColorScheme _colorScheme = ColorScheme.fromSeed(seedColor: Colors.yellow);
+ColorScheme _colorScheme = ColorScheme.fromSeed(seedColor: Colors.blue);
 TextTheme _textTheme = const TextTheme().copyWith();
 
 AppBarTheme _appBarTheme = const AppBarTheme().copyWith(
