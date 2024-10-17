@@ -15,6 +15,7 @@ class WindArrow extends StatelessWidget {
       "NW": 3.92699,
       "N": 4.71239,
       "NE": 5.49779,
+      "NNE": 0.392,
     };
     return conversionMap[direction] ?? 0.0;
   }
