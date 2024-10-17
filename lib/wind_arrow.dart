@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class WindArrow extends StatelessWidget {
-  const WindArrow({required this.speed, required this.direction, super.key});
-  final String speed;
+  const WindArrow({required this.direction, super.key});
   final String direction;
 
   double convertDirectionToRadians(String direction) {
-    const conversionMap = {
+    const directionConversionMap = {
       "E": 3.14159,
       "ESE": 3.52557,
       "SE": 3.92699,
@@ -24,7 +23,7 @@ class WindArrow extends StatelessWidget {
       "NE": 2.35619,
       "ENE": 2.74017,
     };
-    return conversionMap[direction] ?? 0.0;
+    return directionConversionMap[direction] ?? 0.0;
   }
 
   @override

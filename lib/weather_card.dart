@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/wind_arrow.dart';
+import 'package:weather_app/wind_info.dart';
 
 class WeatherCard extends StatelessWidget {
   const WeatherCard(this.forecast, {super.key});
@@ -31,12 +32,10 @@ class WeatherCard extends StatelessWidget {
         Image.network(forecast['icon']),
         Text("${forecast['temperature']}${forecast['temperatureUnit']}"),
         Text(forecast['shortForecast']),
-        WindArrow(
+        WindInfo(
           speed: forecast['windSpeed'],
           direction: forecast['windDirection'],
         ),
-        Text(
-            "Wind: ${forecast['windSpeed']} from ${forecast['windDirection']}"),
         const Text("Humidity"),
         Text(forecast['detailedForecast']),
       ],
