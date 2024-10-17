@@ -26,6 +26,27 @@ class _LocationState extends State<Location> {
             }),
             child: const Text("Glendale, CA"),
           ),
+          TextButton(
+            onPressed: () => setState(() {
+              latitude = 28.538336;
+              longitude = -81.379234;
+            }),
+            child: const Text("Orlando, FL"),
+          ),
+          TextButton(
+            onPressed: () => setState(() {
+              latitude = 42.3601;
+              longitude = -71.0589;
+            }),
+            child: const Text("Boston, MA"),
+          ),
+          TextButton(
+            onPressed: () => setState(() {
+              latitude = 21.315603;
+              longitude = -157.858093;
+            }),
+            child: const Text("Honolulu, HI"),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(

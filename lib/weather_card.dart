@@ -16,29 +16,58 @@ class WeatherCard extends StatelessWidget {
     var endTime = inFormat.parse(forecast['endTime']);
     var timeString =
         '${formatAsTimeAndDay(startTime)} until ${formatAsTimeAndDay(endTime)}';
+    // Setting up theme info
+    ThemeData theme = Theme.of(context);
+    var tt = theme.textTheme;
+    var colorScheme = theme.colorScheme;
 
-    var colorScheme = Theme.of(context).colorScheme;
-    print(forecast);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          timeString,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge
-              ?.copyWith(color: colorScheme.primary),
-        ),
-        Image.network(forecast['icon']),
-        Text("${forecast['temperature']}${forecast['temperatureUnit']}"),
-        Text(forecast['shortForecast']),
-        WindInfo(
-          speed: forecast['windSpeed'],
-          direction: forecast['windDirection'],
-        ),
-        const Text("Humidity"),
-        Text(forecast['detailedForecast']),
-      ],
+    print(forecast['name']);
+    return Container(
+      margin: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+          border: Border.all(width: 4.0),
+          color: colorScheme.secondaryContainer,
+          borderRadius: BorderRadius.circular(10.0)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            timeString,
+            style: tt.bodyLarge?.copyWith(color: colorScheme.primary),
+          ),
+          Row(
+            children: [
+              Expanded(
+                flex: 50,
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                  child: Image.network(
+                    forecast['icon'],
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 50,
+                child: Column(
+                  children: [
+                    Text(
+                        "${forecast['temperature']}${forecast['temperatureUnit']}",
+                        style: tt.bodyLarge?.copyWith(fontSize: 60.0)),
+                    Text(forecast['shortForecast'], style: tt.bodyLarge),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Text(forecast['detailedForecast']),
+          WindInfo(
+            speed: forecast['windSpeed'],
+            direction: forecast['windDirection'],
+          ),
+        ],
+      ),
     );
   }
 }

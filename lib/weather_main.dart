@@ -47,12 +47,10 @@ class _WeatherMainState extends State<WeatherMain> {
       appBar: AppBar(
         title: const Text("Forecast"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: forecasts.map((f) {
-            return WeatherCard(f);
-          }).toList(),
-        ),
+      body: ListView(
+        children: forecasts.map((f) {
+          return WeatherCard(f);
+        }).toList(),
       ),
     );
   }
