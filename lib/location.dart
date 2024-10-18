@@ -15,20 +15,19 @@ class _LocationState extends State<Location> {
 
   @override
   void initState() {
-    print('initializing');
+    debugPrint('initializing');
     try {
       Geolocator.requestPermission().then((perm) {
         if (perm == LocationPermission.denied) {
-          print('denied');
+          debugPrint('denied');
           setState(() {
             latitude = 28.385233;
             longitude = -81.563873;
           });
         } else {
-          print('allowed');
+          debugPrint('allowed');
           Geolocator.getCurrentPosition().then(
             (value) {
-              print('got latlon: ${value.latitude}');
               setState(() {
                 latitude = value.latitude;
                 longitude = value.longitude;
@@ -38,7 +37,7 @@ class _LocationState extends State<Location> {
         }
       });
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
     super.initState();
   }

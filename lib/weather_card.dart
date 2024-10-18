@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:weather_app/wind_arrow.dart';
 import 'package:weather_app/wind_info.dart';
 
 class WeatherCard extends StatelessWidget {
@@ -21,7 +20,6 @@ class WeatherCard extends StatelessWidget {
     var tt = theme.textTheme;
     var colorScheme = theme.colorScheme;
 
-    print(forecast['name']);
     return Container(
       margin: const EdgeInsets.all(10.0),
       padding: const EdgeInsets.all(10.0),
